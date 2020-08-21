@@ -271,13 +271,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 802656833}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 30}
-  m_LocalScale: {x: 1.0000005, y: 1, z: 15}
+  m_LocalScale: {x: 1, y: 1, z: 15}
   m_Children:
   - {fileID: 1635997432}
-  m_Father: {fileID: 1977290582}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &802656835
 MeshCollider:
@@ -565,16 +565,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c47484ab569be17488db1d5247324aaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 2101200497}
+  startingFloor: {fileID: 802656833}
   floorPieces:
   - {fileID: 6036965417610749999, guid: d37803362fbba074eb13fc14bbae45fd, type: 3}
   - {fileID: 4661574306331816684, guid: 2e0dcf1201d69964f86806d7c477eaf5, type: 3}
   - {fileID: 945574203082068133, guid: ac8313ca4aa090741a0d4982cfa5faaa, type: 3}
   - {fileID: 4722581441400684162, guid: b35e5029ea6512a42951979fd628afd3, type: 3}
-  startingFloor: {fileID: 802656833}
-  startSpawn: 1
-  spawnInterval: 4.75
-  startDespawn: 14
-  despawnInterval: 4.75
 --- !u!4 &1977290582
 Transform:
   m_ObjectHideFlags: 0
@@ -585,8 +582,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 802656834}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
