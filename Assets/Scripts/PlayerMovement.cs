@@ -19,17 +19,13 @@ public class PlayerMovement : MonoBehaviour
 
         speed = startingSpeed; // Set the <speed> to <startingSpeed>
 
-        loadTime = Time.timeSinceLevelLoad; // Take the time the level was loaded
+        loadTime = Time.time; // Take the time the level was loaded
     }
 
     void Update()
     {
-        if (speed < maxSpeed) { // If the maximum speed has not been reached yet
-            // Add the current time that this level has been loaded and devide by 
-            timeMultiplier += (Time.deltaTime - loadTime) / 100000000;
-
+        if (speed < maxSpeed) // If the maximum speed has not been reached yet
             speed += timeMultiplier; // Increase <speed> by <timeMultiplier> every <Update>
-        }
 
         transform.position += movement * speed * Time.deltaTime; // Move non-stop only forward by <speed>
     }
