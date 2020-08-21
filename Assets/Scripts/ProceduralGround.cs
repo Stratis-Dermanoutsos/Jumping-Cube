@@ -8,30 +8,29 @@ public class ProceduralGround : MonoBehaviour
     private int consecutiveGaps = 0; // Only allow 1 gap at a time
     private float zPositionToSpawnNext; // Position in the z axis to spawn the next <floorPiece
 
-    [Header("Floor Pieces")]
-    [SerializeField] private GameObject[] floorPieces; // Array of objects available to spawn
+    [SerializeField] private Transform player;
+
     [SerializeField] private GameObject startingFloor; // The first spawned <floorPiece>
 
-    [Header("Piece Spawn")]
-    [SerializeField] [Range(1F, 3F)] private float startSpawn; // Start spawning <floorPieces> at <startSpawn>
-    [SerializeField] [Range(1F, 7F)] private float spawnInterval; // Spawn a piece every <spawnInterval>
+    [SerializeField] private GameObject[] floorPieces; // Array of objects available to spawn
 
-    [Header("Piece Despawn")]
-    [SerializeField] [Range(1F, 20F)] private float startDespawn; // Start despawning <floorPieces> at <startDespawn>
-    [SerializeField] [Range(3F, 10F)] private float despawnInterval; // Despawn a piece every <despawnInterval>
-    
     void Start()
     {
         // Initialize the floor list
         spawnedFloorPieces = new List<GameObject>();
         spawnedFloorPieces.Insert(0, startingFloor);
         zPositionToSpawnNext = 125F;
+    }
 
-        // Spawn a <floorPiece> at <startSpawn> seconds in and every <spawnInterval> seconds
-        InvokeRepeating("SpawnFloorPiece", startSpawn, spawnInterval);
+    void LateUpdate()
+    {
+        // Always keep 5 <floorPieces> spawned
+        if (spawnedFloorPieces.Count < 6) SpawnFloorPiece();
 
-        // Despawn a <floorPiece> at <startDespawn> seconds in and every <despawnInterval> seconds
-        InvokeRepeating("DespawnFloorPiece", startDespawn, despawnInterval);
+        // Remove pieces left behind by the player
+        if (spawnedFloorPieces.Count == 6)
+            if (player.transform.position.z >= spawnedFloorPieces[3].transform.position.z)
+                DespawnFloorPiece();
     }
 
     void SpawnFloorPiece() 
