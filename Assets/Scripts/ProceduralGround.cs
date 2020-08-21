@@ -24,6 +24,8 @@ public class ProceduralGround : MonoBehaviour
 
     void LateUpdate()
     {
+        if (player == null) return; // Stop if the <player> is dead
+
         // Always keep 5 <floorPieces> spawned
         if (spawnedFloorPieces.Count < 6) SpawnFloorPiece();
 

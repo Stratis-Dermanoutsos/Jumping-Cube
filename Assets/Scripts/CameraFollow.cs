@@ -8,6 +8,8 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+        if (player == null) return; // Stop if the <player> is dead
+
         // Take the <player>'s position without changing the y axis
         Vector3 playerPosition = new Vector3(
             player.transform.position.x, 
