@@ -10,19 +10,27 @@ public class PlayerJump : MonoBehaviour
 
     private bool isGrounded; // Check if the player is grounded to reset jump
 
+    private bool justLanded; // Check when the player landed
+
     private Rigidbody rb; // The player's <RigidBody>
 
     [SerializeField] private GameObject landingParticles; // Particles on player's landing
-    private bool shouldSpawnParticles;
+
+    [Header("SFX")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip jumpSound;
+    [SerializeField] private AudioClip landSound;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>(); // Set the <RigidBody of our player
 
+        audioSource = GetComponentInChildren<AudioSource>(); // Take the <AudioSource> component from child
+
         // Give bool variables a start value
         isGrounded = true;
         isJumping = false;
-        shouldSpawnParticles = false;
+        justLanded = false;
     }
 
     void Update()
@@ -33,8 +41,10 @@ public class PlayerJump : MonoBehaviour
             jumpTimeCounter = jumpTime;
             rb.velocity = Vector3.up * jumpForce;
 
+            audioSource.PlayOneShot(jumpSound); // Play the <jumpSound>
+
             // Reset the spawn particles
-            shouldSpawnParticles = true;
+            justLanded = true;
         }
 
         // Hold to jump higher
@@ -50,17 +60,19 @@ public class PlayerJump : MonoBehaviour
             isJumping = false;
 
         // Reset <isGrounded>
-        isGrounded = (transform.position.y <= 0.5f);
+        isGrounded = (transform.position.y <= 0.5001f);
 
-        // Spawn our <landingParticles>
-        if (isGrounded && shouldSpawnParticles && !isJumping) {
+        // Landing
+        if (isGrounded && justLanded && !isJumping) {
             GameObject particles = Instantiate(
                 landingParticles,
                 transform.position - new Vector3(0, 0.4F, 0),
                 Quaternion.identity
-                );
+            );
+
+            audioSource.PlayOneShot(landSound); // Play the <landSound>
             
-            shouldSpawnParticles = false; // Disable
+            justLanded = false; // Disable
 
             Destroy(particles, 1F); // Destroy the particles after a while
         }
