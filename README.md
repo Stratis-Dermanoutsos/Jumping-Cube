@@ -23,5 +23,6 @@ You are free to use the <b>source code</b> or any <b>asset</b> as you please.
 #### Credits:
 - Muic: from [ecrett music](https://ecrettmusic.com)
 - Sound Effects: Assets by [Kenney](https://www.kenney.nl)
+- Everything else: [me](https://github.com/Stratis-Dermanoutsos)
 
 [game-page]: https://infinite-pain.itch.io/jumping-cube
