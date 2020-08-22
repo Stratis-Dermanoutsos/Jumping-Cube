@@ -11,7 +11,7 @@ It serves as a project meant for **practice**.
 
 
 <br />
-You are free to use the **source code** or any **asset** as you please.
+You are free to use the <b>source code</b> or any <b>asset</b> as you please.
 <br />
 
 ### To get the compiled game:
