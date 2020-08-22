@@ -19,7 +19,7 @@ public class PlayerJump : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>(); // Set the <RigidBody of our player
 
-        // Give bool variable a start value
+        // Give bool variables a start value
         isGrounded = true;
         isJumping = false;
         shouldSpawnParticles = false;
