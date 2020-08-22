@@ -14,7 +14,7 @@ It serves as a project meant for **practice**.
 You are free to use the **source code** or any **asset** as you please.
 <br />
 
-##### To get the compiled game:
+### To get the compiled game:
 [<img align="left" alt="Jumping-Cube | itch" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@3.5.0/icons/itch-dot-io.svg" />][game-page]
 
 
