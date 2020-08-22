@@ -5,8 +5,7 @@
 <br />
 <br />
 
-This is by no means a commersial game.
-
+This is by **no means** a commersial game.
 It serves as a project meant for **practice**.
 
 
