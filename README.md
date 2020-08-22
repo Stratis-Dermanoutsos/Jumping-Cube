@@ -5,7 +5,8 @@
 <br />
 <br />
 
-This is by **no means** a commersial game.
+### Disclaimer
+This is by **no means** a finished game nor a commercial product.
 
 It serves as a project meant for **practice**.
 
