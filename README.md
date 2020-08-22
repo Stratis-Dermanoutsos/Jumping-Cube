@@ -6,10 +6,12 @@
 <br />
 
 This is by **no means** a commersial game.
+
 It serves as a project meant for **practice**.
 
 
 <br />
+You are free to use the **source code** or any **asset** as you please.
 <br />
 
 ##### To get the compiled game:
