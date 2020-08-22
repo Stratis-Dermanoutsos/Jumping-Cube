@@ -6,6 +6,8 @@ public class PlayerDeath : MonoBehaviour
     [SerializeField] private GameObject deathPanel;
     [SerializeField] private Text highScoreText;
 
+    [SerializeField] private GameObject deathParticles;
+
     // Property to access the <highScore> PlayerPrefs variable
     public int HighScore { get { return PlayerPrefs.GetInt("highScore"); } }
 
@@ -22,6 +24,10 @@ public class PlayerDeath : MonoBehaviour
 
     public void Die()
     {
+        // Spawn the <deathParticles>
+        GameObject particles = Instantiate(deathParticles, transform.position, Quaternion.identity );
+        Destroy(particles, 1F); // Destroy the particles after a while
+
         deathPanel.SetActive(true); // Activate the <deathPanel>
         highScoreText.text = string.Format("Best: {0} m.", HighScore); // Set the <highScoreText> to <HighScore>
 

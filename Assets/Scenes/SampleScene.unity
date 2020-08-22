@@ -1204,7 +1204,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1977290580}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1374,6 +1374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathPanel: {fileID: 1234537863}
   highScoreText: {fileID: 612604812}
+  deathParticles: {fileID: 2496692952506881458, guid: 73d3e1e2db5f54d499bb75a1303473c2, type: 3}
 --- !u!114 &2101200502
 MonoBehaviour:
   m_ObjectHideFlags: 0
