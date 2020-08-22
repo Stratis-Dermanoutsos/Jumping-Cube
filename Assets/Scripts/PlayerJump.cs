@@ -12,9 +12,17 @@ public class PlayerJump : MonoBehaviour
 
     private Rigidbody rb; // The player's <RigidBody>
 
-    void Start()
+    [SerializeField] private GameObject landingParticles; // Particles on player's landing
+    private bool shouldSpawnParticles;
+
+    void Awake()
     {
         rb = GetComponent<Rigidbody>(); // Set the <RigidBody of our player
+
+        // Give bool variable a start value
+        isGrounded = true;
+        isJumping = false;
+        shouldSpawnParticles = false;
     }
 
     void Update()
@@ -24,6 +32,9 @@ public class PlayerJump : MonoBehaviour
             isJumping = true;
             jumpTimeCounter = jumpTime;
             rb.velocity = Vector3.up * jumpForce;
+
+            // Reset the spawn particles
+            shouldSpawnParticles = true;
         }
 
         // Hold to jump higher
@@ -31,13 +42,27 @@ public class PlayerJump : MonoBehaviour
             rb.velocity = Vector3.up * jumpForce;
             jumpTimeCounter -= Time.deltaTime;
         } else {
-            isJumping = false;
+            isJumping = false; // Stop when the <jumpTimeCounter> has reached 0
         }
 
         // Release to stop jumping
         if (Input.GetKeyUp(KeyCode.Space))
             isJumping = false;
 
-        isGrounded = (transform.position.y <= 0.5001f); // Set the isGrounded based on the height
+        // Reset <isGrounded>
+        isGrounded = (transform.position.y <= 0.5f);
+
+        // Spawn our <landingParticles>
+        if (isGrounded && shouldSpawnParticles && !isJumping) {
+            GameObject particles = Instantiate(
+                landingParticles,
+                transform.position - new Vector3(0, 0.4F, 0),
+                Quaternion.identity
+                );
+            
+            shouldSpawnParticles = false; // Disable
+
+            Destroy(particles, 1F); // Destroy the particles after a while
+        }
     }
 }
