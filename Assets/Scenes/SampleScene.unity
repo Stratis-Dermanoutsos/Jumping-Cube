@@ -1566,8 +1566,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 48056703}
   movement: {x: 0, y: 0, z: 1}
-  startingSpeed: 10
-  timeMultiplier: 0.00001
+  startingSpeed: 11.5
+  timeMultiplier: 0.0004
   maxSpeed: 20
   speed: 10
 --- !u!114 &2101200500
